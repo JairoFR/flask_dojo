@@ -1,0 +1,51 @@
+{% extends "/base.html" %}
+{% block titulo %}{% endblock %}
+
+
+
+{% block contenido %}
+<nav class="navbar navbar-dark bg-dark">
+    <a class="navbar-brand ms-3" href="{{url_for('add_dojos')}}">
+        Agregar Dojo
+    </a>
+</nav>
+<div class="container mt-5 ">
+   
+    <div class="row">
+        <div class="col-6">
+            <h1>{{dojo.nombre}}</h1>
+            <hr class="mb-5">
+            <h3>Alumnos Inscritos</h3>
+            <table id="mi_tabla">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Edad</th>
+                    </tr>
+                </thead>
+                <tbody> 
+                    
+                        {% for dojos in dojo.ninjas %}
+                            {% if dojos == None %}
+                                    <p>Sin datos</p>
+                            {% else %}
+                                <tr>
+                                    <td>{{dojos.nombre}} {{dojos.apellido}}</td>   
+                                    <td>{{dojos.edad}}</td>   
+                                    <td></td>   
+                                </tr>
+                                {% endif %}
+                        {% endfor %}
+                </tbody>
+            </table>
+
+
+        </div>
+        <div class="col-6 d-flex justify-content-center">
+            <img src="{{ url_for('static', filename='img/dojo.png') }}" class="rounded float-right" height="80%"
+                width="50%" alt="Responsive image">
+        </div>
+    </div>
+
+</div>
+{% endblock %}

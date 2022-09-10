@@ -1,0 +1,44 @@
+{% extends "/base.html" %}
+{% block titulo %}{% endblock %}
+
+
+
+{% block contenido %}
+<nav class="navbar navbar-dark bg-dark">
+    <a class="navbar-brand ms-3" href="{{url_for('add_dojos')}}">
+        Agregar Dojo
+    </a>
+</nav>
+<div class="container mt-5 "> 
+    <div class="row">
+        <header class="container">
+            <h2>Lista de Estudiantes</h2>
+            <hr>
+            <div class="col 12">    
+                <table id="mi_tabla">
+                    <thead>
+                        <tr>
+                            <th>Nombre de alumno</th>
+                            <th>Edad</th>
+                            <th>Dojo</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for ninja in ninjas %}
+                        <tr>
+                            <td>{{ninja.nombre}} {{ninja.apellido}}</td>
+                            <td>{{ninja.edad}}</td>
+                            <td>{{ninja.dojo| title}}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </header>
+    </div>
+</div>
+ 
+
+
+
+{% endblock %}

@@ -1,0 +1,10 @@
+@font-face { 
+    font-family: lastninja; 
+    src: url('lastninja.TTF') format('truetype'); 
+} 
+
+h1{
+    font-family: lastninja;
+}
+
+

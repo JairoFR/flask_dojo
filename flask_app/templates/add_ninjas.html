@@ -1,0 +1,71 @@
+{% extends "/base.html" %}
+{% block titulo %}{% endblock %}
+
+
+
+{% block contenido %}
+<nav class="navbar navbar-dark bg-dark">
+    <a class="navbar-brand ms-3"  href="{{url_for('add_dojos')}}">
+      Agregar Dojo
+    </a>
+  </nav>
+<header class="container mt-3 d-flex p-3 justify-content-center">
+    <div class="row">
+        <h1 class="titulo">New Ninja</h1>
+    </div>
+</header>
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-6" >
+            <form action="{{url_for('add_ninja')}}" method="post">
+                <div class="col-12 mt-3">
+                    <select name="dojo_id" class="form-select" aria-label="Default select example">
+                        <option selected>SELECCIONE DOJO</option>
+                        {% for dojo in all_dojos %}
+                        <option value={{dojo.id}}>{{dojo.nombre}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="row g-4 mt-1 align-items-center">
+                    <div class="col-4">
+                        <label for="nombre" class="col-form-label "><strong>Nombre:</strong></label>
+                    </div>
+                    <div class="col-8">
+                        <input type="text" id="nombre" class="form-control" name="nombre">
+                    </div>
+                </div>
+                <div class="row g-4 mt-1 align-items-center">
+                    <div class="col-4 ">
+                        <label for="apellido" class="col-form-label"><strong>Apellido:</strong></label>
+                    </div>
+                    <div class="col-8 mt-12">
+                        <input type="text" id="apellido" class="form-control" name="apellido">
+                    </div>
+                </div>
+                <div class="row g-4 mt-1 align-items-center">
+                    <div class="col-4 ">
+                        <label for="edad" class="col-form-label"><strong>Edad:</strong></label>
+                    </div>
+                    <div class="col-8 mt-12">
+                        <input type="number" id="edad" class="form-control" name="edad">
+                    </div>
+                </div>
+
+                <div class="d-flex justify-content-center">
+                    <button type="submit" class="btn btn-dark mt-3 ">Crear</button>
+                </div>
+
+            </form>
+        </div>
+        <div class="col-6">
+            <img src="{{ url_for('static', filename='img/Coding-Dojo-Chile.jpg') }}" class="img-fluid border"
+                alt="Responsive image">
+        </div>
+
+
+
+    </div>
+</div>
+
+
+{% endblock %}
