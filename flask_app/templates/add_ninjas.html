@@ -5,7 +5,7 @@
 
 {% block contenido %}
 <nav class="navbar navbar-dark bg-dark">
-    <a class="navbar-brand ms-3"  href="{{url_for('add_dojos')}}">
+    <a class="btn btn-outline-light ms-3"  href="{{url_for('add_dojos')}}">
       Agregar Dojo
     </a>
   </nav>
@@ -19,8 +19,8 @@
         <div class="col-6" >
             <form action="{{url_for('add_ninja')}}" method="post">
                 <div class="col-12 mt-3">
-                    <select name="dojo_id" class="form-select" aria-label="Default select example">
-                        <option selected>SELECCIONE DOJO</option>
+                    <select name="dojo_id" class="form-select" aria-label="Default select example" required>
+                        <option value="">SELECCIONE DOJO</option>
                         {% for dojo in all_dojos %}
                         <option value={{dojo.id}}>{{dojo.nombre}}</option>
                         {% endfor %}

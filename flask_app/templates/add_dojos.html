@@ -5,7 +5,7 @@
 
 {% block contenido %}
 <nav class="navbar navbar-dark bg-dark">
-    <a class="navbar-brand" href="{{url_for('ver_ninjas')}}">
+    <a class="btn btn-outline-light m-3" href="{{url_for('ver_ninjas')}}">
         Ninjas
     </a>
 </nav>
@@ -47,6 +47,7 @@
                     </tr>
                 </tbody>
             </table>
+            <a class= "btn btn-primary" href="/add_ninjas">Agregar Ninja</a>
         </div>
     </div>
 </div>
